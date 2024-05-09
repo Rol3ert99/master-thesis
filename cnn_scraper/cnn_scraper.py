@@ -10,7 +10,7 @@ import csv
 # Set the path to chromedriver
 chrome_driver_path = '/usr/lib/chromium-browser/chromedriver'
 
-boundary_date = datetime(2023, 1, 1)
+boundary_date = datetime(2022, 1, 1)
 
 file = open('cnn_headlines.csv', 'w')
 writer = csv.writer(file)
@@ -21,8 +21,10 @@ service = Service(chrome_driver_path)
 
 driver = webdriver.Chrome(service=service, options=chrome_options)
 
+bad_dates = 0
+
 def get_headlines(url):
-    bad_dates = 0
+    global bad_dates
     driver.get(url)
     time.sleep(3)
 
@@ -42,6 +44,7 @@ def get_headlines(url):
             writer.writerow([headline_text, date_text])
             print(headline_text)
             print(date_text)
+            bad_dates = 0
         
         if bad_dates > 20:
             return False

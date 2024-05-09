@@ -10,7 +10,7 @@ import csv
 # Set the path to chromedriver
 chrome_driver_path = '/usr/lib/chromium-browser/chromedriver'
 
-boundary_date = datetime(2023, 1, 1)
+boundary_date = datetime(2022, 1, 1)
 
 file = open('cnbc_headlines.csv', 'w')
 writer = csv.writer(file)
