@@ -25,11 +25,14 @@ url = 'https://www.cnbc.com/search/?query=APPLE&qsearchterm=APPLE'
 driver.get(url)
 time.sleep(5)
 
-accept_cookies_button = driver.find_element(By.XPATH, '//*[@id="onetrust-accept-btn-handler"]')
+accept_cookies_button = driver.find_element(By.XPATH, 
+                        '//*[@id="onetrust-accept-btn-handler"]')
+
 accept_cookies_button.click()
 time.sleep(5)
 
-sort_by_newest_button = driver.find_element(By.XPATH, '//*[@id="sortdate"]')
+sort_by_newest_button = driver.find_element(By.XPATH, 
+                                            '//*[@id="sortdate"]')
 sort_by_newest_button.click()
 time.sleep(5)
 
@@ -43,7 +46,7 @@ while True:
     i += 1
     time.sleep(scroll_pause_time)
 
-    scroll_height = driver.execute_script("return document.body.scrollHeight;")
+    scroll_height = driver.execute_script("document.body.scrollHeight;")
     if screen_height * i > scroll_height:
         break
 
